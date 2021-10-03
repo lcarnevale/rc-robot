@@ -1,35 +1,34 @@
-from pynput import keyboard
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 
-def setup():
-	left = keyboard.Key.left
-	down = keyboard.Key.down
-	right = keyboard.Key.right
-	up = keyboard.Key.up
+"""
+This implementation does its best to follow the Robert Martin's Clean code  guidelines.
+The comments follows the Google Python Style Guide:
+    https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+"""
 
-	def on_press(key):
-		if key == left:
-			print("Step on left")
-		elif key == down:
-			print("Step on down")
-		if key == right:
-			print("Step on right")
-		if key == up:
-			print("Step on up")
+__copyright__ = 'Copyright 2021, FCRLab at University of Messina'
+__author__ = 'Lorenzo Carnevale <lcarnevale@unime.it>'
+__credits__ = ''
+__description__ = ''
 
-	def on_release(key):
-		return
-
-	# non-blocking fashion
-	listener = keyboard.Listener(on_press=on_press, on_release=on_release)
-	listener.start()
-
-def loop():
-	while True:
-		pass
+import argparse
 
 def main():
-	setup()
-	loop()
-
+	description = ('%s\n%s' % (__author__, __description__))
+	epilog = ('%s\n%s' % (__credits__, __copyright__))
+	parser = argparse.ArgumentParser(
+		description = description,
+		epilog = epilog
+	)
+	
+	parser.add_argument('-v', '--verbosity',
+						dest='verbosity',
+						help='Logging verbosity level',
+						action="store_true")
+						
+	options = parser.parse_args()
+	verbosity = options.verbosity
+	
 if __name__ == "__main__":
-    main()
+	main()
