@@ -1,6 +1,6 @@
-click==8.0.1
-Flask==2.0.1
-itsdangerous==2.0.1
-Jinja2==3.0.1
-MarkupSafe==2.0.1
-Werkzeug==2.0.1
+evdev==1.4.0
+pynput==1.7.5
+python-xlib==0.31
+RPi.GPIO==0.7.1a4
+six==1.16.0
+sshkeyboard==2.3.1
